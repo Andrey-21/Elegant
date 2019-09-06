@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url("fonts/OpenSansBold.eot");
+  src: url("fonts/OpenSansBold.eot") format("embedded-opentype"), url("fonts/OpenSansBold.woff2") format("woff2"), url("fonts/OpenSansBold.woff") format("woff"), url("fonts/OpenSansBold.ttf") format("truetype"), url("fonts/OpenSansBold.svg#OpenSansBold") format("svg"); }
+@font-face {
+  font-family: 'OpenSansLight';
+  src: url("fonts/OpenSansLight.eot");
+  src: url("fonts/OpenSansLight.eot") format("embedded-opentype"), url("fonts/OpenSansLight.woff2") format("woff2"), url("fonts/OpenSansLight.woff") format("woff"), url("fonts/OpenSansLight.ttf") format("truetype"), url("fonts/OpenSansLight.svg#OpenSansLight") format("svg"); }
+@font-face {
+  font-family: 'OpenSansLightItalic';
+  src: url("fonts/OpenSansLightItalic.eot");
+  src: url("fonts/OpenSansLightItalic.eot") format("embedded-opentype"), url("fonts/OpenSansLightItalic.woff2") format("woff2"), url("fonts/OpenSansLightItalic.woff") format("woff"), url("fonts/OpenSansLightItalic.ttf") format("truetype"), url("fonts/OpenSansLightItalic.svg#OpenSansLightItalic") format("svg"); }
+@font-face {
+  font-family: 'OpenSansRegular';
+  src: url("fonts/OpenSansRegular.eot");
+  src: url("fonts/OpenSansRegular.eot") format("embedded-opentype"), url("fonts/OpenSansRegular.woff2") format("woff2"), url("fonts/OpenSansRegular.woff") format("woff"), url("fonts/OpenSansRegular.ttf") format("truetype"), url("fonts/OpenSansRegular.svg#OpenSansRegular") format("svg"); }
+@font-face {
+  font-family: 'OpenSansSemiBold';
+  src: url("fonts/OpenSansSemiBold.eot");
+  src: url("fonts/OpenSansSemiBold.eot") format("embedded-opentype"), url("fonts/OpenSansSemiBold.woff2") format("woff2"), url("fonts/OpenSansSemiBold.woff") format("woff"), url("fonts/OpenSansSemiBold.ttf") format("truetype"), url("fonts/OpenSansSemiBold.svg#OpenSansSemiBold") format("svg"); }
+* {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  -webkit-font-smoothing: antialiased; }
+
+html {
+  height: 100%; }
+
+header {
+  position: absolute;
+  width: 100%; }
+  header .container {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px; }
+    header .container .navBurger {
+      cursor: pointer;
+      background: #fff;
+      box-sizing: border-box;
+      background-clip: content-box;
+      width: 35px;
+      height: 24px;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: all 0.25s ease-in-out;
+      transition: all 0.25s ease-in-out; }
+      header .container .navBurger:before, header .container .navBurger:after {
+        content: "";
+        position: absolute;
+        background: #fff;
+        height: 2px;
+        width: 100%;
+        right: 0;
+        will-change: rotate;
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+      header .container .navBurger:before {
+        top: -10px;
+        width: 100%; }
+      header .container .navBurger:after {
+        bottom: -10px;
+        width: 100%; }
+      header .container .navBurger.active {
+        background: transparent;
+        background-clip: content-box; }
+      header .container .navBurger.active:before {
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+        top: 0;
+        background: #fff;
+        width: 110%; }
+      header .container .navBurger.active:after {
+        bottom: 0;
+        -webkit-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        background: #fff;
+        width: 110%; }
+      header .container .navBurger .menu {
+        position: absolute;
+        right: 42px;
+        text-transform: uppercase;
+        font-size: 30px;
+        top: -20px;
+        color: #ffffff;
+        font-family: 'OpenSansSemiBold'; }
+    header .container .overlay {
+      position: fixed;
+      background: #2a3140;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform-origin: right top;
+      transform: scale(0);
+      visibility: hidden;
+      transition: all 0.4s ease-in-out;
+      overflow: hidden; }
+      header .container .overlay.open {
+        opacity: 0.99;
+        visibility: visible;
+        transform: scale(1); }
+        header .container .overlay.open li {
+          display: block;
+          animation: fadeInRight 0.4s cubic-bezier(0.42, 0.83, 0.7, 1.5) forwards;
+          animation-delay: 0.4s;
+          transform: rotate(-7deg);
+          transform-origin: right bottom; }
+          header .container .overlay.open li:nth-of-type(2) {
+            animation-delay: 0.5s; }
+          header .container .overlay.open li:nth-of-type(3) {
+            animation-delay: 0.6s; }
+          header .container .overlay.open li:nth-of-type(4) {
+            animation-delay: 0.7s; }
+          header .container .overlay.open li:nth-of-type(5) {
+            animation-delay: 0.8s; }
+    header .container .overlayMenu {
+      position: absolute;
+      text-align: right;
+      right: 10vw;
+      bottom: 10vw; }
+      header .container .overlayMenu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        height: 100%; }
+        header .container .overlayMenu ul li {
+          display: block;
+          position: relative;
+          opacity: 0;
+          width: 100%; }
+          header .container .overlayMenu ul li a {
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            color: #fff;
+            text-decoration: none;
+            font-size: 30px;
+            padding: 10px 40px 10px 40px;
+            margin: 5px 0;
+            transition: 0.2s; }
+            header .container .overlayMenu ul li a:hover, header .container .overlayMenu ul li a:active, header .container .overlayMenu ul li a:focus {
+              transform: translateX(-2px);
+              padding-left: 80px;
+              outline: 1px solid rgba(255, 255, 255, 0.3);
+              background: rgba(255, 255, 255, 0.03); }
+    header .container .locked {
+      overflow: hidden; }
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 50px; }
+  100% {
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg); } }
+.banner img {
+  width: 100%;
+  max-width: 100%; }
+.banner h1 {
+  position: absolute;
+  z-index: 2;
+  top: 22vw;
+  color: #ffffff;
+  text-align: center;
+  width: 98%;
+  font-size: 80px;
+  font-family: 'OpenSansLightItalic';
+  letter-spacing: 10px; }
+
+.about {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 80px; }
+  .about .top-sentence {
+    color: #D4AF37;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 40px; }
+  .about .headline {
+    color: #4D5C66;
+    font-size: 32px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 21px; }
+  .about .text {
+    color: #021725;
+    font-size: 16px;
+    line-height: 30px;
+    max-width: 767px;
+    margin: 0  auto;
+    margin-top: 60px; }
+  .about .button {
+    text-align: center;
+    margin-top: 45px; }
+    .about .button a {
+      border: 2px solid #000;
+      text-decoration: none;
+      padding: 21px 46px; }
+
+.portfolio {
+  padding-top: 40px;
+  padding-bottom: 80px; }
+  .portfolio .top-sentence {
+    color: #D4AF37;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 40px; }
+  .portfolio .headline {
+    color: #4D5C66;
+    font-size: 32px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 21px; }
+  .portfolio .portfolio-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 91px; }
+    .portfolio .portfolio-img img {
+      margin-bottom: 20px; }
+
+.team {
+  padding-top: 40px;
+  padding-bottom: 80px; }
+  .team .top-sentence {
+    color: #D4AF37;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 40px; }
+  .team .headline {
+    color: #4D5C66;
+    font-size: 32px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 21px; }
+  .team .text {
+    color: #021725;
+    font-size: 16px;
+    line-height: 30px;
+    max-width: 767px;
+    margin: 0  auto;
+    margin-top: 60px;
+    text-align: center; }
+  .team .about-team {
+    display: flex;
+    justify-content: center; }
+    .team .about-team .team-user {
+      max-width: 245px;
+      background-color: #F9F9F9;
+      text-align: left;
+      padding-bottom: 48px;
+      margin-left: 7px;
+      margin-top: 47px; }
+      .team .about-team .team-user h2 {
+        color: #D4AF37;
+        font-size: 12px;
+        padding: 20px 10px; }
+        .team .about-team .team-user h2 span {
+          display: block;
+          color: #000;
+          font-size: 17px;
+          margin-top: 20px; }
+      .team .about-team .team-user p {
+        font-size: 13px;
+        text-align: left;
+        padding: 0 10px 0 10px;
+        line-height: 22px; }
+
+.content {
+  margin-top: 40px;
+  padding-bottom: 80px; }
+  .content .top-sentence {
+    color: #D4AF37;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 40px; }
+  .content .headline {
+    color: #4D5C66;
+    font-size: 32px;
+    text-align: center;
+    font-family: 'OpenSansLight';
+    margin-top: 21px; }
+  .content .story {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 87px;
+    justify-content: center;
+    margin-top: 50px; }
+  .content .description {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    padding: 40px;
+    background-color: #F9F9F9;
+    max-width: 385px; }
+    .content .description .date {
+      font-size: 13px;
+      font-family: 'OpenSansSemiBold'; }
+    .content .description h5 {
+      font-size: 26px;
+      margin-top: 22px;
+      color: #ffffff; }
+    .content .description p {
+      font-size: 16px;
+      text-align: left;
+      max-width: 310px;
+      margin-top: 40px;
+      margin-bottom: 57px; }
+    .content .description a {
+      border: 2px solid #000;
+      text-decoration: none;
+      display: inline-block;
+      padding: 18px 34px;
+      margin: 0 auto; }
+  .content div {
+    display: flex;
+    justify-content: center; }
+    .content div a {
+      text-decoration: none;
+      border: 2px solid #000;
+      padding: 21px 48px; }
+
+/*# sourceMappingURL=style.css.map */
